@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torchvision.models as models
 import numpy as np
-from ResNet import B2_ResNet
+from model.ResNet import B2_ResNet
 from utils import init_weights,init_weights_orthogonal_normal
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 from torch.autograd import Variable
