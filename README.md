@@ -39,22 +39,51 @@ Code for our submission: https://drive.google.com/file/d/1Bz_vy2farSXEU2v1E23NT2
 
 Install Pytorch
 
-# Train Model
+:exclamation: Specify dependencies in detail
+
+# Data Preparation
+
+1. Download [training set](https://drive.google.com/file/d/1n1bEfw3lzI6p8u1xaxEqnuEXgNqbAFTA/view?usp=sharing) and [test set](https://drive.google.com/file/d/1nzGLnlmntTGbcaShfQvE6ouyfWJD-pIB/view?usp=sharing) to *\${DATA_DIR}*
+
+2. Unzip them like
+
+   ```
+   . (${DATA-DIR})
+   ├── train
+   	├── depth
+   	├── gray
+   	├── gt
+   	└── img
+   └── test
+   	├── DES
+   	├── LFSD
+   	├── NJU2K
+   	├── NLPR
+   	├── SIP
+   	└── STERE
+   ```
+
+# Training
 
 1. Download training data from: https://drive.google.com/file/d/1zslnkJaD_8h3UjxonBz0ESEZ2eguR_Zi/view?usp=sharing, and put it in folder "data"
-
 2. Run ./train.py
 
-# Test Model
+:exclamation: Define some arguments including `data_dir`, `model_dir`, ...
 
-1. Download the trained model from: https://drive.google.com/file/d/1nzGLnlmntTGbcaShfQvE6ouyfWJD-pIB/view?usp=sharing, and put it in folder "models"
+# Inference
 
-2. Download the testing dataset from: https://drive.google.com/file/d/1n1bEfw3lzI6p8u1xaxEqnuEXgNqbAFTA/view?usp=sharing, and put it in folder "test_dataset"
+* Execute the command below to test
 
-3. Modify testing image path in "test.py" accordingly
+```
+$ python test.py --dataset_dir ${DATA_DIR}/test --model_path ${MODEL_PATH}
+```
 
-4. Run ./test.py
+* You can download the trained model from [here](https://drive.google.com/file/d/1nzGLnlmntTGbcaShfQvE6ouyfWJD-pIB/view?usp=sharing)
+* If you download the trained model above to *\${MODEL_DIR}* , then:
 
+```
+$ python test.py --dataset_dir ${DATA-DIR}/test --model_path ${MODEL_DIR}/Model_100_gen.pth
+```
 
 # Our results:
 
