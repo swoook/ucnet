@@ -1,4 +1,11 @@
+# :exclamation: This is cloned repository!
+
+
+
+This repository is cloned from [JingZhang617/UCNet](https://github.com/JingZhang617/UCNet) and modified for reproducing evaluation results.
+
 # UCNet (CVPR2020)
+
 UC-Net: Uncertainty Inspired RGB-D Saliency Detection via Conditional Variational Autoencoders
 
 ![alt text](./training_rgbd.png)
