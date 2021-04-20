@@ -6,6 +6,7 @@ import pdb, os, argparse
 from scipy import misc
 from model.ResNet_models import Generator
 from data import test_dataset
+import cv2
 
 os.environ["CUDA_VISIBLE_DEVICES"] = '1'
 
@@ -44,4 +45,4 @@ for dataset in test_datasets:
         res = generator_pred
         res = F.upsample(res, size=[WW,HH], mode='bilinear', align_corners=False)
         res = res.sigmoid().data.cpu().numpy().squeeze()
-        misc.imsave(save_path+name, res)
+        cv2.imwrite(os.path.join(save_path, imgname), res)
