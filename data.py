@@ -115,8 +115,8 @@ def get_loader(image_root, gt_root, depth_root, gray_root, batchsize, trainsize,
 class test_dataset:
     def __init__(self, image_root, depth_root, testsize):
         self.testsize = testsize
-        self.images = [image_root + f for f in os.listdir(image_root) if f.endswith('.jpg')]
-        self.depths = [depth_root + f for f in os.listdir(depth_root) if f.endswith('.bmp')
+        self.images = [os.path.join(image_root, f) for f in os.listdir(image_root) if f.endswith('.jpg')]
+        self.depths = [os.path.join(depth_root, f) for f in os.listdir(depth_root) if f.endswith('.bmp')
                     or f.endswith('.png')]
         self.images = sorted(self.images)
         self.depths = sorted(self.depths)
@@ -152,5 +152,3 @@ class test_dataset:
         with open(path, 'rb') as f:
             img = Image.open(f)
             return img.convert('L')
-
-
